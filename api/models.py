@@ -3,9 +3,7 @@ from django.db import models
 # Create your models here.
 import datetime
 
-from django.db import models
 from django.utils import timezone
-from django.utils.timezone import get_current_timezone
 
 
 class Question(models.Model):

@@ -4,8 +4,8 @@ from rest_framework import routers
 from api import views
 
 router = routers.DefaultRouter()
-router.register(r"questions", views.QuestionViewSet)
-router.register(r"choices", views.ChoiceViewSet)
+router.register(r"persons", views.PersonViewSet)
+router.register(r"relationships", views.RelationshipViewSet)
 
 
 urlpatterns = [

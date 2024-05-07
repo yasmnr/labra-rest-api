@@ -1,15 +1,15 @@
 from rest_framework import serializers
 
-from api.models import Question, Choice
+from api.models import Person, Relationship
 
 
-class QuestionSerializer(serializers.HyperlinkedModelSerializer):
+class PersonSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Question
-        fields = ["url", "question_text", "pub_date"]
+        model = Person
+        fields = ["url", "first_name","last_name", "birth_date","death_date", "gender"]
 
 
-class ChoiceSerializer(serializers.HyperlinkedModelSerializer):
+class RelationshipSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Choice
-        fields = ["url", "question", "choice_text", "votes"]
+        model = Relationship
+        fields = ["url", "parent", "child", "type"]

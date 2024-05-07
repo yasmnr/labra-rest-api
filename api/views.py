@@ -1,14 +1,14 @@
 from rest_framework import viewsets
 
-from api.models import Choice, Question
-from api.serializers import ChoiceSerializer, QuestionSerializer
+from api.models import Relationship, Person
+from api.serializers import RelationshipSerializer, PersonSerializer
 
 
-class QuestionViewSet(viewsets.ModelViewSet):
-    queryset = Question.objects.all()
-    serializer_class = QuestionSerializer
+class PersonViewSet(viewsets.ModelViewSet):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
 
 
-class ChoiceViewSet(viewsets.ModelViewSet):
-    queryset = Choice.objects.all().order_by("question")
-    serializer_class = ChoiceSerializer
+class RelationshipViewSet(viewsets.ModelViewSet):
+    queryset = Relationship.objects.all().order_by("parent")
+    serializer_class = RelationshipSerializer

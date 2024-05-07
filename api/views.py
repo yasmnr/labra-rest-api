@@ -1,10 +1,14 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
-from django.http import HttpResponse
-from rest_framework.response import Response
-
+from api.models import Choice, Question
+from api.serializers import ChoiceSerializer, QuestionSerializer
 
 
-def index(request):
-    return HttpResponse("Uijuma")
+class QuestionViewSet(viewsets.ModelViewSet):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+
+
+class ChoiceViewSet(viewsets.ModelViewSet):
+    queryset = Choice.objects.all().order_by("question")
+    serializer_class = ChoiceSerializer
